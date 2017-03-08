@@ -1,4 +1,3 @@
-const NODE_ENV = process.env.NODE_ENV;
 const dotenv = require('dotenv');
 
 const webpack = require('webpack');
@@ -9,6 +8,7 @@ const path    = require('path'),
 
 const getConfig = require('hjs-webpack');
 
+const NODE_ENV = process.env.NODE_ENV;
 const isDev  = NODE_ENV === 'development';
 const isTest = NODE_ENV === 'test';
 
@@ -24,7 +24,7 @@ var config = getConfig({
   html: function (context) {
     return {
       'index.html': context.defaultTemplate({
-        title: 'yelp-clone from fullstackreact.com',
+        title: 'Denise Rocks',
         publicPath: isDev ? 'http://localhost:3000/' : '',
         meta: {
           'name': 'fullstackreact yelp clone',
