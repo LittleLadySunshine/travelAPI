@@ -101,26 +101,28 @@ config.resolve.alias = {
 // console.log(require('prettyjson').render(config));
 
 // Testing
-if (isTest) {
-  config.externals = {
-    'react/addons': true,
-    'react/lib/ReactContext': true,
-    'react/lib/ExecutionEnvironment': true,
-  }
-  config.module.noParse = /[/\\]sinon\.js/;
-  config.resolve.alias['sinon'] = 'sinon/pkg/sinon';
-
-  config.plugins = config.plugins.filter(p => {
-    const name = p.constructor.toString();
-    const fnName = name.match(/^function (.*)\((.*\))/)
-
-    const idx = [
-      'DedupePlugin',
-      'UglifyJsPlugin'
-    ].indexOf(fnName[1]);
-    return idx < 0;
-  })
-}
-// End Testing
-
-module.exports = config;
+// if (isTest) {
+//   config.externals = {
+//     'react/addons': true,
+//     'react/lib/ReactContext': true,
+//     'react/lib/ExecutionEnvironment': true,
+//   }
+//   config.module.noParse = /[/\\]sinon\.js/;
+//   config.resolve.alias['sinon'] = 'sinon/pkg/sinon';
+//
+//   config.plugins = config.plugins.filter(p => {
+//     const name = p.constructor.toString();
+//     const fnName = name.match(/^function (.*)\((.*\))/)
+// //
+// //     const idx = [
+// //       'DedupePlugin',
+// //       'UglifyJsPlugin'
+// //     ].indexOf(fnName[1]);
+// //     return idx < 0;
+// //   })
+// // }
+// // End Testing
+//
+// module.exports = config;
+//
+// )};

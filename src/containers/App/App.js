@@ -1,7 +1,43 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import styles from './styles.module.css'
+import 'font-awesome/css/font-awesome.css'
+import './app.css'
+
+import {browserHistory, Router, Route} from 'react-router'
+
+const routes = (
+  <Router>
+    <Route path="/" component={Home} />
+  </Router>
+)
+import App from 'containers/App/App'
+
+const mountNode = document.querySelector('#root');
+ReactDOM.render(
+  <App history={browserHistory} />, mountNode);
+
+
+class App extends React.Component {
+  static propTypes = {
+  routes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
+}
+  // class getter
+  content() {
+    return (<Router
+      routes={this.props.routes}
+        history={this.props.history} />)
+  }
+
+  render() {
+    return (
+      <div style={ { height: '100%' } }>
+        {this.content}
+      </div>
+    )
+  }
+}
 
 const App = React.createClass({
   render: function() {
