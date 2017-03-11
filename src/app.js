@@ -1,20 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import 'font-awesome/css/font-awesome.css'
 import './app.css'
-import styles from './styles.module.css'
 
-const App = React.createClass({
-  render: function() {
-    return (
-      <div className={styles.wrapper}>
-        <h1>
-          <i className="fa fa-star"></i>
-          Environment: </h1>
-      </div>
-    )
-  }
-});
+import App from 'containers/App/App'
+
+import {hashHistory} from 'react-router'
+import makeRoutes from './routes'
+
+const routes = makeRoutes()
 
 const mountNode = document.querySelector('#root');
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(
+  <App history={hashHistory}
+        routes={routes} />,
+mountNode);

@@ -7,6 +7,7 @@ const path    = require('path'),
       resolve = path.resolve;
 
 const getConfig = require('hjs-webpack');
+require('babel-register');
 
 const NODE_ENV = process.env.NODE_ENV;
 const isDev  = NODE_ENV === 'development';
@@ -18,21 +19,10 @@ const modules = join(root, 'node_modules');
 const dest    = join(root, 'dist');
 
 var config = getConfig({
-  isDev: isDev || isTest,
+  isDev,
   in: join(src, 'app.js'),
   out: dest,
-  html: function (context) {
-    return {
-      'index.html': context.defaultTemplate({
-        title: 'Denise Rocks',
-        publicPath: isDev ? 'http://localhost:3000/' : '',
-        meta: {
-          'name': 'fullstackreact yelp clone',
-          'description': 'A minimal yelp clone from the team behind the fullstackreact.com book'
-        }
-      })
-    }
-  }
+  clearBeforeBuild: true
 });
 
 // ENV variables
