@@ -1,17 +1,16 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import {browserHistory, Router, Route, Redirect} from 'react-router'
 
-import 'font-awesome/css/font-awesome.css'
-import './app.css'
+import makeMainRoutes from './views/Main/routes'
 
-import App from 'containers/App/App'
+export const makeRoutes = () => {
+  const main = makeMainRoutes();
 
-import {browserHistory} from 'react-router'
-import makeRoutes from './routes'
+  return (
+    <Route path=''>
+      {main}
+    </Route>
+  )
+}
 
-const routes = makeRoutes()
-
-const mountNode = document.querySelector('#root');
-ReactDOM.render(
-  <App history={browserHistory}
-        routes={routes} />, mountNode);
+export default makeRoutes
