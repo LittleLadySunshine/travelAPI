@@ -7,7 +7,7 @@
 
   describe('<Header />', () => {
     let wrapper;
-    beforeEach(() =? {
+    beforeEach(() => {
       wrapper = shallow(<Header />)
     });
 
@@ -21,5 +21,5 @@
         .to.have.length(1)
     });
 
-    
+
   })
