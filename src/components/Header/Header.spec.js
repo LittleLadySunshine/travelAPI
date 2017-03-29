@@ -23,8 +23,7 @@
 
     it('contains a section menu with the title', () => {
       expect(wrapper.find('section').first().text())
-      .to.equal('Fullstack.io')
-});
-
+      .to.equal('')
+    });
 
   })
