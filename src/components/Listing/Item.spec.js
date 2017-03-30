@@ -8,7 +8,7 @@ import styles from './styles.module.css'
 describe('<Item />', () => {
   let wrapper;
   const place = {
-    name: 'bob'
+    name: 'Denise'
   }
   beforeEach(() => {
     wrapper = shallow(<Item place={place} />)
