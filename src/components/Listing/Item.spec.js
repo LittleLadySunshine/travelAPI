@@ -10,6 +10,7 @@ describe('<Item />', () => {
   const place = {
     name: 'Denise'
   }
+
   beforeEach(() => {
     wrapper = shallow(<Item place={place} />)
   });
@@ -18,3 +19,8 @@ describe('<Item />', () => {
     expect(wrapper.find('h1').first().text())
       .to.equal(place.name)
   });
+
+  it('wraps the component with an .item css class', () => {
+    expect(wrapper.find(`.${styles.item}`))
+      .to.have.length(1);
+  })
